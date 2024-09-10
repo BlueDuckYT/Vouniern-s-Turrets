@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:redstone"
+    },
+    "R": {
+      "item": "minecraft:echo_shard"
+    },
+    "X": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "pattern": [
+    "###",
+    "XRX",
+    "XXX"
+  ],
+  "result": {
+    "item": "v_turrets:sniper_turret_core"
+  }
+}

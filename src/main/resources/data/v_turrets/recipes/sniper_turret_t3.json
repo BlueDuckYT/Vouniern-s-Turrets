@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "v_turrets:sniper_turret_t2"
+    },
+    "X": {
+      "item": "minecraft:echo_shard"
+    },
+    "B": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "###",
+    "BRB",
+    "XXX"
+  ],
+  "result": {
+    "item": "v_turrets:sniper_turret_t3"
+  }
+}

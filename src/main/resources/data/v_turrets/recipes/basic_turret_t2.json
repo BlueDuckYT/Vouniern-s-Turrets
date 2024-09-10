@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "R": {
+      "item": "v_turrets:basic_turret_t1"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "pattern": [
+    "###",
+    "DRD",
+    "BEB"
+  ],
+  "result": {
+    "item": "v_turrets:basic_turret_t2"
+  }
+}

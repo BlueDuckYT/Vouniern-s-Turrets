@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:echo_shard"
+    },
+    "R": {
+      "item": "v_turrets:basic_turret_t2"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "#R#",
+    "BBB"
+  ],
+  "result": {
+    "item": "v_turrets:basic_turret_t3"
+  }
+}

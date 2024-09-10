@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "minecraft:logs"
+    },
+    "R": {
+      "item": "v_turrets:sniper_turret_core"
+    },
+    "X": {
+      "item": "minecraft:dispenser"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "XRX",
+    "B#B"
+  ],
+  "result": {
+    "item": "v_turrets:sniper_turret_t1"
+  }
+}

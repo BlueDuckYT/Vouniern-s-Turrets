@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "minecraft:echo_shard"
+    },
+    "X": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "pattern": [
+    "###",
+    "XRX",
+    "XXX"
+  ],
+  "result": {
+    "item": "v_turrets:basic_turret_core"
+  }
+}

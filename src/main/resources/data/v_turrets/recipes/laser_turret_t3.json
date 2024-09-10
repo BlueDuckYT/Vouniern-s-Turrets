@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "R": {
+      "item": "v_turrets:laser_turret_t2"
+    },
+    "B": {
+      "item": "minecraft:echo_shard"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "BXB",
+    "XRX",
+    "BXB"
+  ],
+  "result": {
+    "item": "v_turrets:laser_turret_t3"
+  }
+}

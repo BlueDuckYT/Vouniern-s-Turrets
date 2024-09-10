@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "R": {
+      "item": "v_turrets:seed_turret_core"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "minecraft:iron_hoe"
+    }
+  },
+  "pattern": [
+    "###",
+    "BRB",
+    "XBX"
+  ],
+  "result": {
+    "item": "v_turrets:seed_turret_t1"
+  }
+}

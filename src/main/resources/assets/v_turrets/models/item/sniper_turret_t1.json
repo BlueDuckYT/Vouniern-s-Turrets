@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "v_turrets:item/sniper_turret_t1"
+  }
+}

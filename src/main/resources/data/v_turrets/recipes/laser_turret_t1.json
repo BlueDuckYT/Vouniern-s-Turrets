@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "minecraft:logs"
+    },
+    "R": {
+      "item": "v_turrets:laser_turret_core"
+    },
+    "B": {
+      "item": "minecraft:copper_ingot"
+    },
+    "C": {
+      "item": "minecraft:copper_block"
+    }
+  },
+  "pattern": [
+    "###",
+    "BRB",
+    "CCC"
+  ],
+  "result": {
+    "item": "v_turrets:laser_turret_t1"
+  }
+}

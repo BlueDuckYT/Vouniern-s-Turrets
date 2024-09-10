@@ -1,0 +1,43 @@
+{
+  "item.v_turrets.basic_turret_core": "Stone Turret Core",
+  "item.v_turrets.seed_turret_core": "Seed Turret Core",
+  "item.v_turrets.sniper_turret_core": "Sniper Turret Core",
+  "item.v_turrets.laser_turret_core": "Laser Turret Core",
+
+  "item.v_turrets.basic_turret_t1": "Tier 1 Stone Turret",
+  "item.v_turrets.basic_turret_t2": "Tier 2 Stone Turret",
+  "item.v_turrets.basic_turret_t3": "Tier 3 Stone Turret",
+  "item.v_turrets.seed_turret_t1": "Tier 1 Seed Turret",
+  "item.v_turrets.seed_turret_t2": "Tier 2 Seed Turret",
+  "item.v_turrets.seed_turret_t3": "Tier 3 Seed Turret",
+  "item.v_turrets.sniper_turret_t1": "Tier 1 Sniper Turret",
+  "item.v_turrets.sniper_turret_t2": "Tier 2 Sniper Turret",
+  "item.v_turrets.sniper_turret_t3": "Tier 3 Sniper Turret",
+  "item.v_turrets.laser_turret_t1": "Tier 1 Laser Turret",
+  "item.v_turrets.laser_turret_t2": "Tier 2 Laser Turret",
+  "item.v_turrets.laser_turret_t3": "Tier 3 Laser Turret",
+
+  "entity.v_turrets.basic_turret_t1": "Tier 1 Stone Turret",
+  "entity.v_turrets.basic_turret_t2": "Tier 2 Stone Turret",
+  "entity.v_turrets.basic_turret_t3": "Tier 3 Stone Turret",
+  "entity.v_turrets.seed_turret_t1": "Tier 1 Seed Turret",
+  "entity.v_turrets.seed_turret_t2": "Tier 2 Seed Turret",
+  "entity.v_turrets.seed_turret_t3": "Tier 3 Seed Turret",
+  "entity.v_turrets.sniper_turret_t1": "Tier 1 Sniper Turret",
+  "entity.v_turrets.sniper_turret_t2": "Tier 2 Sniper Turret",
+  "entity.v_turrets.sniper_turret_t3": "Tier 3 Sniper Turret",
+  "entity.v_turrets.laser_turret_t1": "Tier 1 Laser Turret",
+  "entity.v_turrets.laser_turret_t2": "Tier 2 Laser Turret",
+  "entity.v_turrets.laser_turret_t3": "Tier 3 Laser Turret",
+
+
+  "subtitles.entity.turret.ambient": "Turret idles",
+  "subtitles.entity.turret.propeller": "Turret flies",
+  "subtitles.entity.turret.hurt": "Turret is damaged",
+  "subtitles.entity.turret.death": "Turret dies",
+
+  "subtitles.entity.turret.basic_shoot": "Stone Turret Shoots",
+  "subtitles.entity.turret.seed_shoot": "Seed Turret Shoots",
+  "subtitles.entity.turret.sniper_shoot": "Sniper Turret Shoots",
+  "subtitles.entity.turret.laser_shoot": "Laser Turret Shoots"
+}

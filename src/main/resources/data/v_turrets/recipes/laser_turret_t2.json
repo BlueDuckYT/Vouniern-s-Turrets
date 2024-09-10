@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "R": {
+      "item": "v_turrets:laser_turret_t1"
+    },
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "pattern": [
+    "#E#",
+    "XRX",
+    "#E#"
+  ],
+  "result": {
+    "item": "v_turrets:laser_turret_t2"
+  }
+}

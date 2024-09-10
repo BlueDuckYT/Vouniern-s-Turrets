@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "R": {
+      "item": "minecraft:echo_shard"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "XRX",
+    "XXX"
+  ],
+  "result": {
+    "item": "v_turrets:seed_turret_core"
+  }
+}

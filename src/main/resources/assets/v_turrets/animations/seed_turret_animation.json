@@ -1,0 +1,107 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.model.fire": {
+			"animation_length": 1,
+			"bones": {
+				"head": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [-15, 0, 0],
+							"easing": "easeOutBack"
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutSine"
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.4": {
+							"vector": [0, 0, 2],
+							"easing": "easeOutBack",
+							"easingArgs": [1]
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutSine"
+						}
+					}
+				},
+				"leg0": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, -20, 0],
+							"easing": "easeOutBack"
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutSine"
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, 0, 2],
+							"easing": "easeOutBack"
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutSine"
+						}
+					}
+				},
+				"leg1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, 20, 0],
+							"easing": "easeOutBack"
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutSine"
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, 0, 2],
+							"easing": "easeOutBack"
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutSine"
+						}
+					}
+				}
+			}
+		},
+		"animation.model.idle": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"head": {
+					"position": {
+						"vector": [0, "(-math.abs(math.sin(query.anim_time*1440)*0.1))+(-math.abs(math.sin(query.anim_time*720)*0.1))", 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

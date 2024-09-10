@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "v_turrets:basic_turret_core"
+    },
+    "X": {
+      "item": "minecraft:dispenser"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "BRX",
+    "BBB"
+  ],
+  "result": {
+    "item": "v_turrets:basic_turret_t1"
+  }
+}

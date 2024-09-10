@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "minecraft:echo_shard"
+    },
+    "B": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "#B#",
+    "BRB",
+    "#B#"
+  ],
+  "result": {
+    "item": "v_turrets:laser_turret_core"
+  }
+}

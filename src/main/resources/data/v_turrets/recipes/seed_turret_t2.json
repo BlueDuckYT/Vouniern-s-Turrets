@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "R": {
+      "item": "v_turrets:seed_turret_t1"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BRB",
+    "XEX"
+  ],
+  "result": {
+    "item": "v_turrets:seed_turret_t2"
+  }
+}
