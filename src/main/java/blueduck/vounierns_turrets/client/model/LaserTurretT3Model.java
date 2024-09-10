@@ -3,9 +3,9 @@ package blueduck.vounierns_turrets.client.model;
 import blueduck.vounierns_turrets.VouniernTurrets;
 import blueduck.vounierns_turrets.entity.LaserTurret;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class LaserTurretT3Model extends AnimatedGeoModel<LaserTurret> {
+public class LaserTurretT3Model extends GeoModel<LaserTurret> {
     @Override
     public ResourceLocation getModelResource(LaserTurret object) {
         return new ResourceLocation(VouniernTurrets.MODID, "geo/laser_turret_tier_3.geo.json");

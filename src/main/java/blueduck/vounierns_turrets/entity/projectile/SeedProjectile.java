@@ -13,19 +13,18 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.builder.ILoopType;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class SeedProjectile extends ThrowableProjectile implements IAnimatable {
+public class SeedProjectile extends ThrowableProjectile implements GeoEntity {
 
-    private AnimationFactory factory = GeckoLibUtil.createFactory(this);
+    private AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
 
     private int damage = 3;
 
@@ -57,7 +56,7 @@ public class SeedProjectile extends ThrowableProjectile implements IAnimatable {
         if (livingentity instanceof SeedTurret)
             damageToDeal += ((SeedTurret) livingentity).tier;
 
-        boolean flag =  entity.hurt(DamageSource.thrown(this, livingentity), damageToDeal);
+        boolean flag =  entity.hurt(this.damageSources().thrown(this, livingentity), damageToDeal);
 
         this.discard();
         Vec3 vec3 = this.getDeltaMovement();
@@ -84,18 +83,22 @@ public class SeedProjectile extends ThrowableProjectile implements IAnimatable {
     }
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
+    public void registerControllers(AnimatableManager.ControllerRegistrar data) {
+        data.add(new AnimationController(this, "controller",
                 0, this::predicate));
     }
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.loop", ILoopType.EDefaultLoopTypes.LOOP));
+    public static final RawAnimation LOOP = RawAnimation.begin().thenPlay("animation.model.loop");
+
+    private <E extends GeoAnimatable> PlayState predicate(software.bernie.geckolib.core.animation.AnimationState event) {
+
+        event.getController().setAnimation(LOOP);
         return PlayState.CONTINUE;
+
     }
 }

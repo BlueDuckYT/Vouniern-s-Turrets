@@ -4,9 +4,9 @@ import blueduck.vounierns_turrets.VouniernTurrets;
 import blueduck.vounierns_turrets.entity.projectile.SeedProjectile;
 import blueduck.vounierns_turrets.entity.projectile.StoneProjectile;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class SeedShotModel extends AnimatedGeoModel<SeedProjectile> {
+public class SeedShotModel extends GeoModel<SeedProjectile> {
     @Override
     public ResourceLocation getModelResource(SeedProjectile object) {
         return new ResourceLocation(VouniernTurrets.MODID, "geo/seed_shot.geo.json");

@@ -14,14 +14,14 @@ public class TurretSounds {
             VouniernTurrets.MODID);
 
 
-    public static final RegistryObject<SoundEvent> TURRET_AMBIENT = SOUNDS.register("entity.turret.ambient", () -> new SoundEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.ambient")));
-    public static final RegistryObject<SoundEvent> TURRET_PROPELLER = SOUNDS.register("entity.turret.propeller", () -> new SoundEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.propeller")));
-    public static final RegistryObject<SoundEvent> TURRET_HURT = SOUNDS.register("entity.turret.hurt", () -> new SoundEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.hurt")));
-    public static final RegistryObject<SoundEvent> TURRET_DEATH = SOUNDS.register("entity.turret.death", () -> new SoundEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.death")));
+    public static final RegistryObject<SoundEvent> TURRET_AMBIENT = SOUNDS.register("entity.turret.ambient", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.ambient")));
+    public static final RegistryObject<SoundEvent> TURRET_PROPELLER = SOUNDS.register("entity.turret.propeller", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.propeller")));
+    public static final RegistryObject<SoundEvent> TURRET_HURT = SOUNDS.register("entity.turret.hurt", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.hurt")));
+    public static final RegistryObject<SoundEvent> TURRET_DEATH = SOUNDS.register("entity.turret.death", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.death")));
 
-    public static final RegistryObject<SoundEvent> BASIC_TURRET_SHOOT = SOUNDS.register("entity.turret.basic_shoot", () -> new SoundEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.basic_shoot")));
-    public static final RegistryObject<SoundEvent> SEED_TURRET_SHOOT = SOUNDS.register("entity.turret.seed_shoot", () -> new SoundEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.seed_shoot")));
-    public static final RegistryObject<SoundEvent> SNIPER_TURRET_SHOOT = SOUNDS.register("entity.turret.sniper_shoot", () -> new SoundEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.sniper_shoot")));
-    public static final RegistryObject<SoundEvent> LASER_TURRET_SHOOT = SOUNDS.register("entity.turret.laser_shoot", () -> new SoundEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.laser_shoot")));
+    public static final RegistryObject<SoundEvent> BASIC_TURRET_SHOOT = SOUNDS.register("entity.turret.basic_shoot", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.basic_shoot")));
+    public static final RegistryObject<SoundEvent> SEED_TURRET_SHOOT = SOUNDS.register("entity.turret.seed_shoot", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.seed_shoot")));
+    public static final RegistryObject<SoundEvent> SNIPER_TURRET_SHOOT = SOUNDS.register("entity.turret.sniper_shoot", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.sniper_shoot")));
+    public static final RegistryObject<SoundEvent> LASER_TURRET_SHOOT = SOUNDS.register("entity.turret.laser_shoot", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(VouniernTurrets.MODID, "entity.turret.laser_shoot")));
 
 }

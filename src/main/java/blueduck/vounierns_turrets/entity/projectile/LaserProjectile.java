@@ -6,6 +6,7 @@ import blueduck.vounierns_turrets.registry.TurretEntities;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,19 +15,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.builder.ILoopType;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class LaserProjectile extends ThrowableProjectile implements IAnimatable {
+public class LaserProjectile extends ThrowableProjectile {
 
-    private AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
     private int damage = 3;
 
@@ -58,7 +52,7 @@ public class LaserProjectile extends ThrowableProjectile implements IAnimatable 
         if (livingentity instanceof LaserTurret)
             damageToDeal = ((LaserTurret) livingentity).tier != 0 ? ((LaserTurret) livingentity).tier : 1;
 
-        boolean flag =  entity.hurt(DamageSource.thrown(this, livingentity), damageToDeal);
+        boolean flag =  entity.hurt(this.damageSources().thrown(this, livingentity), damageToDeal);
         if (livingentity instanceof LaserTurret && ((LaserTurret) livingentity).tier >= 2)
             this.discard();
         Vec3 vec3 = this.getDeltaMovement();
@@ -84,19 +78,5 @@ public class LaserProjectile extends ThrowableProjectile implements IAnimatable 
        this.discard();
     }
 
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-    }
 
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
-    }
-
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.loop", ILoopType.EDefaultLoopTypes.LOOP));
-        return PlayState.CONTINUE;
-    }
 }

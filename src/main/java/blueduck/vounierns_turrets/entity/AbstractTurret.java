@@ -17,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import software.bernie.geckolib.core.animation.RawAnimation;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -29,8 +30,17 @@ public class AbstractTurret extends AbstractGolem {
 
     public int tier;
 
+
+    public static final RawAnimation MOVE = RawAnimation.begin().thenPlay("animation.model.move");
+    public static final RawAnimation IDLE = RawAnimation.begin().thenPlay("animation.model.idle");
+    public static final RawAnimation STAY = RawAnimation.begin().thenPlay("animation.model.stay");
+
+    public static final RawAnimation FIRE = RawAnimation.begin().thenPlay("animation.model.fire");
+
     protected AbstractTurret(EntityType<? extends AbstractGolem> p_27508_, Level p_27509_) {
         super(p_27508_, p_27509_);
+
+        this.getPersistentData().putBoolean("PersistenceRequired", true);
     }
 
     protected void defineSynchedData() {
@@ -76,7 +86,7 @@ public class AbstractTurret extends AbstractGolem {
     public InteractionResult mobInteract(Player p_30412_, InteractionHand p_30413_) {
         ItemStack itemstack = p_30412_.getItemInHand(p_30413_);
         Item item = itemstack.getItem();
-        if (!this.level.isClientSide) {
+        if (!this.level().isClientSide) {
                 if (item.equals(Items.COPPER_INGOT) && this.getHealth() < this.getMaxHealth()) {
                     this.heal(5);
                     if (!p_30412_.getAbilities().instabuild) {
@@ -101,7 +111,7 @@ public class AbstractTurret extends AbstractGolem {
 
             }
             if (p_30413_.equals(InteractionHand.MAIN_HAND) && tier >= 3) {
-                if (!this.level.isClientSide) {
+                if (!this.level().isClientSide) {
                     this.setOrderedToSit(!this.isOrderedToSit());
                     this.jumping = !this.isOrderedToSit();
                     if (this.isOrderedToSit()) {

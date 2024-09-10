@@ -8,11 +8,11 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class SniperTurretT3Renderer extends GeoEntityRenderer<SniperTurret> {
-    public SniperTurretT3Renderer(EntityRendererProvider.Context renderManager, AnimatedGeoModel<SniperTurret> modelProvider) {
+    public SniperTurretT3Renderer(EntityRendererProvider.Context renderManager, GeoModel<SniperTurret> modelProvider) {
         super(renderManager, modelProvider);
         this.shadowRadius = 0.4f;
     }

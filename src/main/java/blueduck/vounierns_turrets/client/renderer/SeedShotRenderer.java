@@ -9,9 +9,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.renderers.geo.GeoProjectilesRenderer;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class SeedShotRenderer extends GeoProjectilesRenderer<SeedProjectile> {
+public class SeedShotRenderer extends GeoEntityRenderer<SeedProjectile> {
     public SeedShotRenderer(EntityRendererProvider.Context context) {
         super(context, new SeedShotModel());
     }

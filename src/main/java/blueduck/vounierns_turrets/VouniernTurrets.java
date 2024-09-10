@@ -11,9 +11,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -27,7 +27,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
-import software.bernie.geckolib3.GeckoLib;
+import software.bernie.geckolib.GeckoLib;
 
 import java.time.Instant;
 import java.util.Date;
@@ -47,12 +47,12 @@ public class VouniernTurrets
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::addItemsToTabs);
 
         TurretEntities.ENTITIES.register(modEventBus);
         TurretItems.ITEMS.register(modEventBus);
         TurretSounds.SOUNDS.register(modEventBus);
 
-        LOGGER.info("UNOFFICIAL RELEASE - BETA TESTING VERSION");
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -66,6 +66,11 @@ public class VouniernTurrets
     private void commonSetup(final FMLCommonSetupEvent event)
     {
 
+    }
+
+    private void addItemsToTabs(BuildCreativeModeTabContentsEvent event)
+    {
+        TurretItems.addItemsToTabs(event);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

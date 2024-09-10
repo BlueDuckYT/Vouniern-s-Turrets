@@ -18,21 +18,19 @@ import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.builder.ILoopType;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
 
-public class SeedTurret extends AbstractTurret implements RangedAttackMob, IAnimatable {
+public class SeedTurret extends AbstractTurret implements RangedAttackMob, GeoEntity {
 
-    private AnimationFactory factory = GeckoLibUtil.createFactory(this);
+    private AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
 
 
     public SeedTurret(EntityType<? extends AbstractGolem> p_27508_, Level p_27509_) {
@@ -43,7 +41,7 @@ public class SeedTurret extends AbstractTurret implements RangedAttackMob, IAnim
     @Override
     public void performRangedAttack(LivingEntity p_29912_, float p_29913_) {
         for (int i = 0; i < 3 + tier * 2; i++) {
-            SeedProjectile snowball = new SeedProjectile(this.level, this);
+            SeedProjectile snowball = new SeedProjectile(this.level(), this);
             double d0 = p_29912_.getEyeY() - (double) 1.1F;
             double d1 = p_29912_.getX() - this.getX();
             double d2 = d0 - snowball.getY();
@@ -51,7 +49,7 @@ public class SeedTurret extends AbstractTurret implements RangedAttackMob, IAnim
             double d4 = Math.sqrt(d1 * d1 + d3 * d3) * (double) 0.2F;
             snowball.shoot(d1, d2 + d4, d3, 1.6F, 12.0F);
             //this.playSound(SoundEvents.SNOW_GOLEM_SHOOT, 1.0F, 0.4F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
-            this.level.addFreshEntity(snowball);
+            this.level().addFreshEntity(snowball);
 
         }
         this.swing(InteractionHand.MAIN_HAND);
@@ -101,38 +99,38 @@ public class SeedTurret extends AbstractTurret implements RangedAttackMob, IAnim
 
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+    private <E extends GeoAnimatable> PlayState predicate(software.bernie.geckolib.core.animation.AnimationState event) {
         if (event.isMoving() && tier >= 3) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.move", ILoopType.EDefaultLoopTypes.LOOP));
+            event.getController().setAnimation(MOVE);
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.idle", ILoopType.EDefaultLoopTypes.LOOP));
+        event.getController().setAnimation(IDLE);
         return PlayState.CONTINUE;
 
     }
 
-    private <E extends IAnimatable> PlayState attackPredicate(AnimationEvent<E> event) {
+    private <E extends GeoAnimatable> PlayState attackPredicate(software.bernie.geckolib.core.animation.AnimationState event) {
         if (this.swinging && this.swingTime != -1) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.fire", ILoopType.EDefaultLoopTypes.PLAY_ONCE));
+            event.getController().setAnimation(FIRE);
             return PlayState.CONTINUE;
         }
 
-        event.getController().markNeedsReload();
+        event.getController().forceAnimationReset();
 
         return PlayState.STOP;
 
     }
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                3, this::predicate));
-        data.addAnimationController(new AnimationController(this, "attackController",
+    public void registerControllers(AnimatableManager.ControllerRegistrar data) {
+        data.add(new AnimationController(this, "controller",
+                0, this::predicate));
+        data.add(new AnimationController(this, "attackController",
                 0, this::attackPredicate));
     }
 
