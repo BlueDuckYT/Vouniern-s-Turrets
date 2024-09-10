@@ -52,7 +52,6 @@ public class VouniernTurrets
         TurretItems.ITEMS.register(modEventBus);
         TurretSounds.SOUNDS.register(modEventBus);
 
-        LOGGER.info("UNOFFICIAL RELEASE - BETA TESTING VERSION");
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

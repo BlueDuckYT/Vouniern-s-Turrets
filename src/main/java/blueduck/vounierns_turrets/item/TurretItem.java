@@ -80,19 +80,7 @@ public class TurretItem extends Item {
             BlockPos blockpos = p_43223_.getClickedPos();
             Direction direction = p_43223_.getClickedFace();
             BlockState blockstate = level.getBlockState(blockpos);
-            if (blockstate.is(Blocks.SPAWNER)) {
-                BlockEntity blockentity = level.getBlockEntity(blockpos);
-                if (blockentity instanceof SpawnerBlockEntity) {
-                    BaseSpawner basespawner = ((SpawnerBlockEntity)blockentity).getSpawner();
-                    EntityType<?> entitytype1 = this.getType();
-                    basespawner.setEntityId(entitytype1);
-                    blockentity.setChanged();
-                    level.sendBlockUpdated(blockpos, blockstate, blockstate, 3);
-                    level.gameEvent(p_43223_.getPlayer(), GameEvent.BLOCK_CHANGE, blockpos);
-                    itemstack.shrink(1);
-                    return InteractionResult.CONSUME;
-                }
-            }
+           
 
             BlockPos blockpos1;
             if (blockstate.getCollisionShape(level, blockpos).isEmpty()) {

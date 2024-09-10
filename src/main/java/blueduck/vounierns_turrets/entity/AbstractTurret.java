@@ -31,6 +31,7 @@ public class AbstractTurret extends AbstractGolem {
 
     protected AbstractTurret(EntityType<? extends AbstractGolem> p_27508_, Level p_27509_) {
         super(p_27508_, p_27509_);
+        this.getPersistentData().putBoolean("PersistenceRequired", true);
     }
 
     protected void defineSynchedData() {
